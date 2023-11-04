@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "136240934785",
+    "project_id": "fir-a3268",
+    "storage_bucket": "fir-a3268.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136240934785:android:bb99f8baf36c222cfc0280",
+        "android_client_info": {
+          "package_name": "com.getfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136240934785-qdcv0vd0pbut1p62pc20594u3ogtlr6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC71D7Yhw5DLIdoS4HLXnF7nzAbH-sACp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136240934785-qdcv0vd0pbut1p62pc20594u3ogtlr6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
