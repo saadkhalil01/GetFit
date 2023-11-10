@@ -2,6 +2,7 @@ import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-nativ
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
+import auth from '@react-native-firebase/auth'
 
 const Login = () => {
   const navigation = useNavigation();
@@ -21,7 +22,14 @@ const Login = () => {
         value={password}
         style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 50, width: 300 }}
       />
-      <TouchableOpacity onPress={() => { console.log(email, password) }}
+      <TouchableOpacity onPress={() => {
+        auth().signInWithEmailAndPassword(email, password)
+          .then(() => {
+            console.log("User Found and SIGN-IN")
+          })
+          .catch(err => { console.log(err) })
+
+      }}
         style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 40, width: 100 }}>
         <Text>
           Login
