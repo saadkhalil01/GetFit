@@ -1,8 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
+import colors from '@constants/colors';
+
 
 export default function Splash() {
+
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -11,14 +14,15 @@ export default function Splash() {
     }, [])
 
     return (
-        <View>
-            <Text>Splash</Text>
+        <View style={styles.container}>
+
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: ''
+        flex: 1,
+        backgroundColor: colors.mainBackGround
     }
 })

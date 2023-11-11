@@ -6,7 +6,6 @@
             "@screens/*": ["./src/screens/*"],
             "@constants/*": ["./src/constants/*"],
             "@images/*": ["./src/assets/images/*"],
-            "@colors/*":["./src/constants/Colors"]
         }
     },
 }

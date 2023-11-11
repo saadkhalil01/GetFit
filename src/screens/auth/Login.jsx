@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
@@ -8,6 +8,25 @@ const Login = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    if (email && password) {
+      auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          Alert.alert("Logging...")
+          navigation.replace('home')
+        })
+        .catch(error => {
+          error.code === 'auth/invalid-email' ? Alert.alert("Invalid Email !!")
+            : error.code === 'auth/user-not-found' ? Alert.alert("User Not Found !!")
+              : Alert.alert("Please check your ID and Password")
+        })
+    }
+    else {
+      Alert.alert("Please Fill all Fields")
+    }
+  }
+
   return (
     <View>
       <TextInput
@@ -22,14 +41,7 @@ const Login = () => {
         value={password}
         style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 50, width: 300 }}
       />
-      <TouchableOpacity onPress={() => {
-        auth().signInWithEmailAndPassword(email, password)
-          .then(() => {
-            console.log("User Found and SIGN-IN")
-          })
-          .catch(err => { console.log(err) })
-
-      }}
+      <TouchableOpacity onPress={handleLogin}
         style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 40, width: 100 }}>
         <Text>
           Login
@@ -51,7 +63,6 @@ const Login = () => {
     </View>
   )
 }
-
 export default Login
 
 const styles = StyleSheet.create({})
