@@ -5,7 +5,7 @@ import ResetPassword from './auth/ResetPassword';
 import DashBoard from './fitness/DashBoard';
 import Home from './fitness/Home';
 import Progress from './fitness/Progress';
-
+import Splash from './Splash';
 export {
-    Login, SignUp, ForgotPassword, ResetPassword, DashBoard, Progress, Home
+    Splash, Login, SignUp, ForgotPassword, ResetPassword, DashBoard, Progress, Home
 }
