@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity  } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const DashBoard = () => {
+    const navigation =useNavigation();
     return (
-        <View>
-            <Text>DashBoard</Text>
-        </View>
+        <TouchableOpacity onPress={()=>{navigation.navigate('progress')}}>
+                <Text>Dashbooard</Text>
+        </TouchableOpacity>
     )
 }
 
