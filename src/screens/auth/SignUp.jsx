@@ -2,7 +2,9 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'reac
 import React, { useState } from 'react'
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
-
+import colors from '../../constants/colors';
+import { Button, Gap, Input } from '../../components';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const SignUp = () => {
     const navigation = useNavigation();
@@ -33,29 +35,23 @@ const SignUp = () => {
     }
 
     return (
-        <View>
-            <TextInput
-                placeholder='Email'
-                onChangeText={setEmail}
-                value={email}
-                style={{ borderColor: 'black', borderWidth: 1, padding: 10, height: 50, width: 300 }}
-            />
-            <TextInput
-                placeholder='password'
-                onChangeText={setPassword}
-                value={password}
-                style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 50, width: 300 }}
-            />
-            <TouchableOpacity onPress={handleSignUp}
-                style={{ borderColor: 'black', borderWidth: 1, marginTop: 10, padding: 10, height: 40, width: 100 }}>
-                <Text>
-                    Register
-                </Text>
-            </TouchableOpacity>
+        <View style={styles.container}>
+            <Input text={'Enter your email'} />
+            <Gap h={2} />
+            <Input text={'Password'}/>
+            <Gap h={2} />
+            <Button text={'Register'} onPress={handleSignUp} />
         </View>
     )
 }
 
 export default SignUp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.mainBackGround
+    },
+})

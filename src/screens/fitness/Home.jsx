@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import auth from '@react-native-firebase/auth'
+import CustomAlert from '../../components/CustomAlert'
+import textStyles from '../../constants/textStyles'
 
 const Home = () => {
     const navigation = useNavigation();
@@ -14,10 +16,10 @@ const Home = () => {
     return (
         <>
             <TouchableOpacity onPress={() => { navigation.navigate('dashboard') }}>
-                <Text>Home</Text>
+                <Text style={textStyles.subText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={LogOut}>
-                <Text>Log Out</Text>
+                <Text style={textStyles.subText}>Log Out</Text>
             </TouchableOpacity>
         </>
     )
