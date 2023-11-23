@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import { Button, Input, Gap, CustomAlert } from '@components';
-import colors from '../../constants/colors';
+import colors from '@constants/colors';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -47,9 +48,16 @@ const Login = () => {
       <Gap h={2} />
       <Button text={'Sign In'} onPress={handleLogin} />
       <Gap h={2} />
-      <Button text={'Sign Up'} onPress={goToSignUp} />
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:widthPercentageToDP(55)}}>
+        <Text style={{color:'white'}}>Don't have an Account?</Text>
+        <TouchableOpacity onPress={goToSignUp}>
+          <Text style={{fontSize:19,fontWeight:'600',color:'gold'}}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
       <Gap h={2} />
-      <Button text={'Forgot Password ?'} onPress={goToForgotPassword} />
+      <TouchableOpacity onPress={goToForgotPassword}>
+        <Text style={{color:'white'}}>Forgot Password ?</Text>
+      </TouchableOpacity>
 
     </View>
   );

@@ -1,5 +1,9 @@
 import colors from "./colors"
 export default textStyles={
+    heading:{
+        fontSize:28,
+        fontWeight:'700'
+    },
     subText:{
         color:'black',
         fontSize:19
