@@ -8,7 +8,7 @@ const Button = ({ text, onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}
             style={styles.ButtonShape}>
-            <Text style={textStyles.buttonText}>
+            <Text style={[textStyles.buttonText,{color:'white',fontWeight:'800'}]}>
                 {text}
             </Text>
         </TouchableOpacity>
@@ -19,16 +19,12 @@ export default Button
 
 const styles = StyleSheet.create({
     ButtonShape: {
-        backgroundColor:"white",
+        backgroundColor:colors.redMedium,
         justifyContent:'center',
         alignItems:"center",
-        borderColor: 'black',
-        borderWidth: 1,
+        borderRadius:hp(2),
         padding: 10,
-        height: hp(6),
-        width: wp(40),
-        borderRightWidth:4,
-        borderBottomWidth:4,
-        borderColor:'black'
+        height: hp(6.5),
+        width: wp(90),
     }
 })

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text,TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity,Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import { Button, Input, Gap, CustomAlert } from '@components';
 import colors from '@constants/colors';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -22,13 +22,13 @@ const Login = () => {
             navigation.replace('home');
           })
           .catch(error => {
-
+             Alert.alert('Kindly Correct your Credentials')
           });
       } else {
-
+        Alert.alert('Please fill all fields');
       }
     } catch (error) {
- 
+      Alert.alert('Server down try later')
     }
   };
 
@@ -42,21 +42,23 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Input text={'Enter your email'} setState={setEmail} state={email}/>
+      <Image style={{alignSelf:'center',height:200,width:200}} source={require('@images/Male.png')}/>
+            <Gap h={5} />
+      <Input text={'Enter your email'} setState={setEmail} state={email} />
       <Gap h={2} />
-      <Input text={'Password'} setState={setPassword} state={password}/>
+      <Input text={'Password'} setState={setPassword} state={password} />
       <Gap h={2} />
       <Button text={'Sign In'} onPress={handleLogin} />
       <Gap h={2} />
-      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:widthPercentageToDP(55)}}>
-        <Text style={{color:'white'}}>Don't have an Account?</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: wp(55) }}>
+        <Text style={{ color: 'grey' }}>Don't have an Account ?</Text>
         <TouchableOpacity onPress={goToSignUp}>
-          <Text style={{fontSize:19,fontWeight:'600',color:'gold'}}>Sign Up</Text>
+          <Text style={{ fontSize: 19, fontWeight: '600', color:'black',fontStyle:'italic' }}>Sign Up</Text>
         </TouchableOpacity>
       </View>
       <Gap h={2} />
-      <TouchableOpacity onPress={goToForgotPassword}>
-        <Text style={{color:'white'}}>Forgot Password ?</Text>
+      <TouchableOpacity style={{alignSelf:'flex-end',paddingRight:wp(5)}} onPress={goToForgotPassword}>
+        <Text style={{color:'grey' }}>Forgot Password ?</Text>
       </TouchableOpacity>
 
     </View>
@@ -67,8 +69,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems:'center',
-    backgroundColor:colors.mainBackGround
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
 });
 

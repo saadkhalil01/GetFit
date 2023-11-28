@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, Alert } from 'react-native'
 import React, { useState } from 'react'
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../constants/colors';
 import { Button, Gap, Input } from '../../components';
-import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 
 const SignUp = () => {
     const navigation = useNavigation();
@@ -30,12 +30,15 @@ const SignUp = () => {
                 })
         }
         else {
-            Alert.alert("Please Fill all Fields")
+            Alert.alert("Enter email like abc.@xyz.com")
         }
     }
 
     return (
         <View style={styles.container}>
+            
+            <Image style={{height:200,width:200}} source={require('@images/SignUpDone.png')}/>
+            <Gap h={5} />
             <Input text={'Enter your email'} />
             <Gap h={2} />
             <Input text={'Password'}/>
@@ -52,6 +55,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.mainBackGround
+        backgroundColor:'white'
     },
 })

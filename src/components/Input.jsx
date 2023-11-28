@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { TextInput } from 'react-native-gesture-handler'
 import textStyles from '../constants/textStyles'
-import { widthPercentageToDP as wp,heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { widthPercentageToDP as wp,heightPercentageToDP as hp, } from 'react-native-responsive-screen'
 
 const Input = ({ text, state, setState }) => {
   return (
@@ -14,6 +14,9 @@ const Input = ({ text, state, setState }) => {
         value={state}
         style={textStyles.inputText}
       />
+      {/* {
+        text==='Password'?(<Image source={require('@images/')}/>):(<></>)
+      } */}
     </View>
   )
 }
@@ -25,10 +28,9 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
     justifyContent:"center",
     paddingLeft:wp(2),
-    borderColor: 'black',
-    borderWidth: 1,
-    height: hp(7),
-    width: wp(80),
-    borderRightWidth:4,
-    borderBottomWidth:4  }
+    borderRadius:hp(2),
+    borderWidth:1,
+    height: hp(8),
+    width: wp(90),
+   }
 })
