@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import auth from '@react-native-firebase/auth'
@@ -18,20 +18,34 @@ const Home = () => {
         return <TouchableOpacity>
         </TouchableOpacity>
     }
+    const data=[
+        {
+            image:'@images/Drinking.png'
+        }
+    ]
     return (
         <View style={{ alignSelf: 'center', width: wp(90), height: hp(100), justifyContent: 'center' }}>
             <TouchableOpacity onPress={LogOut} style={styles.logoutButton}>
                 <Text style={[textStyles.buttonText, { color: 'white', fontSize: 11 }]}>Log Out</Text>
             </TouchableOpacity>
-            <View style={{ height: hp(88), width: wp(90), backgroundColor: 'blue', flexDirection: 'column' }}>
-                <View style={{ height: hp(20), width: wp(90), backgroundColor: 'yellow' }}>
+            <View style={{ height: hp(88), width: wp(90), flexDirection: 'column' }}>
+                <View style={{ height: hp(20), width: wp(90), }}>
                     <Text>greetiing</Text>
                 </View>
-                <View style={{ height: hp(25), backgroundColor: 'orange' }}>
-                    <Text>Options</Text>
+                <View style={{ height: hp(25) }}>
+                    <FlatList 
+                      data={data}
+                      renderItem={({item,index})=>{
+                        return (
+                            <View>
+                                <Image source={item.image}/>
+                            </View>
+                        )
+                      }}
+                    />
                 </View>
-                <View style={{ height: hp(35), backgroundColor: 'red' }}>
-                    <Text>Motivational Quotes</Text>
+                <View style={{ height: hp(35), borderWidth: 1 }}>
+
                 </View>
             </View>
             <TouchableOpacity style={{ position: "absolute", bottom: hp(5), right: '0%' }} onPress={() => { navigation.navigate('progress') }}>
